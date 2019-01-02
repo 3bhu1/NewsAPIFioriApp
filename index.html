@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--1. Bootstrap SAPUI5-->
+	<script id="sap-ui-booststrap" src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js"
+	data-sap-ui-libs="sap.m,sap.ui.commons,sap.ui.table"
+	data-sap-ui-theme="sap_bluecrystal"
+	data-sap-ui-xx-bindingSyntax="complex"
+	data-sap-ui-resourceroots='{"my.newsapi": "./"}'>
+	</script>
+	<script>
+		//2. Attach init function to core
+		 sap.ui.getCore().attachInit(function () {
+		 	//3.Use Shell as container
+		 	var oShell = new sap.m.Shell({
+		 		//5. use Component Container inside shell
+		 		app: new sap.ui.core.ComponentContainer({
+		 					//6. use component aggregation to bind Component.js file
+		 					name: "my.newsapi"
+		 				})
+		 	});
+		 	//4. Place shell at body whose ID is content
+		 	oShell.placeAt("content");
+		 });
+	</script>
+</head>
+<body id="content"></body>
+</html>
