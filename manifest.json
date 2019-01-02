@@ -1,12 +1,61 @@
 {
 	"_version" : "1.6.0",
 	"sap.ui" : {
-		
+		"_version" : "1.3.0",
+		"technology" : "UI5",
+		"deviceTypes" : {
+			"desktop" : true,
+			"tablet" : true,
+			"phone" : true
+		},
+		"supportedThemes" : ["sap_bluecrystal","sap_belize"],
+		"icons":{
+			"icon" : "sap-icon//accept"
+		}
 	},
 	"sap.ui5" : {
-		
+		"_version" : "1.3.0",
+		"dependencies" : {
+			"minUI5Version" : "1.44",
+			"libs" : {
+				"sap.m" : {
+					"minVersion"  :"1.44"
+				}
+			}
+		},
+		"contentDensities":{
+			"compact" : true,
+			"cozy" : true
+		},
+		"models":{
+			"i18n" : {
+				"type" : "sap.ui.model.resource.ResourceModel",
+				"uri" : "i18n/i18n.properties"
+			}
+		},
+		"rootView" : {
+			"viewName" : "my.newsapi.view.App",
+			"id" : "idRootView",
+			"type" : "XML"
+		},
+		"routing" : {
+			"config" : {
+				"viewPath" : "my.newsapi.view",
+				"type" : "XML",
+				"controlId" : "idSplitApp"
+			},
+			"routes" :[]
+		}
 	},
 	"sap.app" :{
-		
+		"_version" : "1.3.0",
+		"id" : "my.newsapi",
+		"type" : "application",
+		"applicationVersion" : {
+			"version" : "1.0.0"
+		},
+		"title" : "{{appTitle}}",
+		"description":"{{appDescription}}",
+		"ach":"MY-APP"
 	}
 }

@@ -8,10 +8,16 @@ sap.ui.define([
 				"manifest" : "json"
 			},
 			init:function(){
-				
-			},
-			createContent: function(){
-				
+				//10. call base class constructor to activate base
+				UIComponent.prototype.init.apply(this);
+				//Invoke Router which consits of below 2 steps
+				//a. Get the object of router from parent
+				var oRouter = this.getRouter();
+				//b. intialize
+				oRouter.initialize();
 			}
+/*			createContent: function(){
+				
+			}*/
 		});
 });
