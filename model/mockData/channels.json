@@ -1,0 +1,34 @@
+{
+	"channels": [
+		{
+			"channelName": "Google News (India)",
+			"channelLogo": "https://icon-locator.herokuapp.com/lettericons/G-120-4788f4.png",
+			"channelAPISource": "google-news-in",
+			"country": "India"
+		},
+		{
+			"channelName": "The Times of India",
+			"channelLogo": "data:image/png;base64,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",
+			"channelAPISource": "the-times-of-india",
+			"country": "India"
+		},
+		{
+			"channelName": "The Hindu",
+			"channelLogo": "https://d302e0npexowb4.cloudfront.net/wp-content/uploads/2016/11/The-Hindu-logo.png",
+			"channelAPISource": "the-hindu",
+			"country": "India"
+		},
+		{
+			"channelName": "The Washington Post",
+			"channelLogo": "https://icon-locator.herokuapp.com/icon?url=https://www.washingtonpost.com&size=70..120..200",
+			"channelAPISource": "the-washington-post",
+			"country": "United States of America"
+		},
+		{
+			"channelName": "The Guardian (UK)",
+			"channelLogo": "https://icon-locator.herokuapp.com/icon?url=https://www.theguardian.com/uk&size=70..120..200",
+			"channelAPISource": "the-guardian-uk",
+			"country": "United Kingdom"
+		}
+	]
+}
