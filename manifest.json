@@ -35,6 +35,10 @@
 			"i18n" : {
 				"type" : "sap.ui.model.resource.ResourceModel",
 				"uri" : "i18n/i18n.properties"
+			},
+			"newsAPI":{
+				"type":"sap.ui.model.json.JSONModel",
+				"uri": "https://newsapi.org/v2/top-headlines?sources="
 			}
 		},
 		"rootView" : {
@@ -54,6 +58,11 @@
 					"pattern" : "",
 					"name" : "masterPage1",
 					"target" : ["showMasterPage1"]
+				},
+				{
+					"pattern" : "news/{cName}",
+					"name" : "detailPage1",
+					"target" : ["showMasterPage1","showDetailPage1"]
 				}
 			],
 			"targets":{
@@ -61,6 +70,11 @@
 					"viewName" : "M1",
 					"viewId" : "idM1",
 					"controlAggregation" : "masterPages"
+				},
+				"showDetailPage1":{
+					"viewName" : "D1",
+					"viewId" : "idD1",
+					"controlAggregation" : "detailPages"
 				}
 			}
 		}

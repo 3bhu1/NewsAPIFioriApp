@@ -2,7 +2,7 @@
 	<Page title="{i18n>channelPageTitle}">
 		<content>
 			<SearchField liveChange="onLiveChange"></SearchField>
-			<List id="idChannelList" items="{/channels}" mode="SingleSelectMaster">
+			<List id="idChannelList" items="{/channels}" mode="SingleSelectMaster" selectionChange="onListSelectionChange">
 				<items>
 					<ObjectListItem intro="{country}" title="{channelName}" icon="{channelLogo}"></ObjectListItem>
 				</items>

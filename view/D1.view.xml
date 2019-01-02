@@ -1,0 +1,9 @@
+<core:View xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="my.newsapi.controller.D1">
+	<Page title="{i18n>newsListPageTitle}">
+		<List id="idNewsList" items="{/articles}" mode="SingleSelectMaster">
+			<items>
+				<FeedListItem sender="{author}" icon="{urlToImage}" text="{description}" info="{title}" timestamp="{publishedAt}" convertLinksToAnchorTags="All"></FeedListItem>
+			</items>
+		</List>
+	</Page>
+</core:View>

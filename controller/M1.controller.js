@@ -24,6 +24,28 @@ sap.ui.define([
 				var oList = this.getView().byId("idChannelList");
 				//update binding
 				oList.getBinding("items").filter(mainFilter);
+			},
+			onListSelectionChange:function(oEvent){
+				//get selected list item
+				var oSelectedListItem = oEvent.getParameter("listItem");
+				//get channel name
+				var oCName = oSelectedListItem.getProperty("title");
+				//access the component.js in order to get model data and store in an array
+				var arr = [];
+				arr = this.getOwnerComponent().getModel().getData()["channels"];
+				//findout api substring
+				var apiSubStr;
+				for(var i=0;i<arr.length;i++){
+					if(arr[i].channelName === oCName){
+						apiSubStr = arr[i].channelAPISource;
+						break;
+					}
+				}
+				//get Router
+				var oRouter = this.getOwnerComponent().getRouter();
+				oRouter.navTo("detailPage1",{
+					cName: apiSubStr
+				});
 			}
 		});
 });
