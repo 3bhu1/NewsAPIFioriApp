@@ -3,9 +3,10 @@ sap.ui.define([
 		'sap/ui/model/json/JSONModel',
 		'sap/ui/model/Filter',
 		'sap/ui/model/FilterOperator',
-		'my/newsapi/formatter/Formatter'
+		'my/newsapi/formatter/Formatter',
+		'sap/m/BusyDialog'
 	],
-	function(BaseController,JSONModel,Filter,FilterOperator,Formatter){
+	function(BaseController,JSONModel,Filter,FilterOperator,Formatter,BusyDialog){
 		return BaseController.extend('my.newsapi.controller.D1',{
 			onInit:function(){
 				this.getOwnerComponent().getRouter().attachRoutePatternMatched(this._onRouteMatched, this);
@@ -15,8 +16,12 @@ sap.ui.define([
 				var apiSubStr = oEvent.getParameters("name").arguments.cName;
 				var oURI = this.getOwnerComponent().getMetadata().getManifest()["sap.ui5"].models.newsAPI.uri;
 				var oAPI = oURI + apiSubStr + "&apiKey=de5d1111dbc343c6b78477b08ab4dd33";
+				var oBusyDialog = new BusyDialog();
+				oBusyDialog.open();
 				var oJSONModel = new JSONModel();
-				oJSONModel.loadData(oAPI);
+				oJSONModel.attachRequestCompleted(function(oEvent) {
+					oBusyDialog.close();
+				},this).loadData(oAPI);
 				//bind model to view
 				this.getView().setModel(oJSONModel);
 			},

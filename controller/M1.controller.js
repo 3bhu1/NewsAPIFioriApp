@@ -3,7 +3,7 @@ sap.ui.define([
 		'sap/ui/model/Filter',
 		'sap/ui/model/FilterOperator'
 	],
-	function(BaseController,Filter,FilterOperator){
+	function(BaseController,Filter,FilterOperator,BusyDialog){
 		return BaseController.extend('my.newsapi.controller.M1',{
 			onInit:function(){
 				
