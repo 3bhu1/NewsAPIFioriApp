@@ -1,12 +1,19 @@
 <core:View xmlns="sap.m" xmlns:core="sap.ui.core" controllerName="my.newsapi.controller.M1">
 	<Page title="{i18n>channelPageTitle}">
 		<content>
-			<SearchField liveChange="onLiveChange"></SearchField>
-			<List id="idChannelList" items="{/channels}" mode="SingleSelectMaster" selectionChange="onListSelectionChange">
+			<SearchField placeholder="Search Available Channels" liveChange="onLiveChange"></SearchField>
+			<List id="idChannelList" items="{/channels}" mode="SingleSelectMaster" selectionChange="onListSelectionChange"
+			updateFinished="onListUpdateFinish">
 				<items>
 					<ObjectListItem intro="{country}" title="{channelName}" icon="{channelLogo}"></ObjectListItem>
 				</items>
 			</List>
 		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button icon="sap-icon://add"></Button>
+			</Toolbar>
+		</footer>
 	</Page>
 </core:View>

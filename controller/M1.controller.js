@@ -43,9 +43,19 @@ sap.ui.define([
 				}
 				//get Router
 				var oRouter = this.getOwnerComponent().getRouter();
+				//navigate to detail page
 				oRouter.navTo("detailPage1",{
 					cName: apiSubStr
 				});
+			},
+			onListUpdateFinish:function(){
+				var oList = this.getView().byId("idChannelList");
+				var oItemToSelect = oList.getItems()[0];
+				//set item as selected
+				debugger;
+				oList.setSelectedItem(oItemToSelect,true);
+				//I want to fire selectionChange event automatically once 0th item is selected
+				//oList.fireSelectionChange(this);
 			}
 		});
 });
