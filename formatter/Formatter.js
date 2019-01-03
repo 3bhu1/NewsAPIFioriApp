@@ -26,7 +26,7 @@ sap.ui.define([
 				else if(month === "12"){
 					monthInWords = "December";
 				}
-				var formattedDate = monthInWords + " " + day + "," + year + " " + time + " " + "IST";
+				var formattedDate = monthInWords + " " + day + "," + year + " " + time + " " + "Hrs";
 				return formattedDate;
 			},
 			formatAuthor:function(sAuthor){
