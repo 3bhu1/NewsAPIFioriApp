@@ -29,6 +29,18 @@
 			"channelLogo": "https://icon-locator.herokuapp.com/icon?url=https://www.theguardian.com/uk&size=70..120..200",
 			"channelAPISource": "the-guardian-uk",
 			"country": "United Kingdom"
+		},
+		{
+			"channelName": "Svenska Dagbladet",
+			"channelLogo": "https://icon-locator.herokuapp.com/icon?url=https://www.svd.se&size=70..120..200",
+			"channelAPISource": "svenska-dagbladet",
+			"country": "Sweden"
+		},
+		{
+			"channelName": "Wired.de",
+			"channelLogo": "https://icon-locator.herokuapp.com/icon?url=https://www.wired.de&size=70..120..200",
+			"channelAPISource": "wired-de",
+			"country": "Germany"
 		}
 	]
 }

@@ -2,7 +2,11 @@
 	<Page title="{i18n>channelPageTitle}">
 		<content>
 			<SearchField placeholder="Search Available Channels" liveChange="onLiveChange"></SearchField>
-			<List id="idChannelList" items="{/channels}" mode="SingleSelectMaster" selectionChange="onListSelectionChange"
+			<List id="idChannelList" items="{
+			path:'/channels',
+			sorter:{path: 'country'}
+			}" 
+			mode="SingleSelectMaster" selectionChange="onListSelectionChange"
 			updateFinished="onListUpdateFinish">
 				<items>
 					<ObjectListItem intro="{country}" title="{channelName}" icon="{channelLogo}"></ObjectListItem>

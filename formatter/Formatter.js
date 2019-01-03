@@ -23,6 +23,9 @@ sap.ui.define([
 				else if(month === "05"){
 					monthInWords = "May";
 				}
+				else if(month === "12"){
+					monthInWords = "December";
+				}
 				var formattedDate = monthInWords + " " + day + "," + year + " " + time + " " + "IST";
 				return formattedDate;
 			},
