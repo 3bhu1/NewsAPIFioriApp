@@ -38,6 +38,9 @@ sap.ui.define([
 				});
 				var oList = this.getView().byId("idNewsList");
 				oList.getBinding("items").filter(mainFilter);
+			},
+			onBack:function(oEvent){
+				window.history.back();
 			}
 		});	
 });
