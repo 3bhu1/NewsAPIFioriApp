@@ -4,7 +4,8 @@
 			<SearchField placeholder="Search Available Channels" liveChange="onLiveChange"></SearchField>
 			<List id="idChannelList" items="{
 			path:'/channels',
-			sorter:{path: 'country'}
+			sorter:{path: 'country',
+			group : true}
 			}" 
 			mode="SingleSelectMaster" selectionChange="onListSelectionChange"
 			updateFinished="onListUpdateFinish">
