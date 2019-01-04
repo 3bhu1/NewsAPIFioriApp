@@ -41,6 +41,10 @@ sap.ui.define([
 						break;
 					}
 				}
+				//Route to Detail Page
+				this.routeToPage(apiSubStr);
+			},
+			routeToPage:function(apiSubStr){
 				//get Router
 				var oRouter = this.getOwnerComponent().getRouter();
 				//navigate to detail page
@@ -50,12 +54,24 @@ sap.ui.define([
 			},
 			onListUpdateFinish:function(){
 				var oList = this.getView().byId("idChannelList");
-				var oItemToSelect = oList.getItems()[0];
+				var oItemToSelect = oList.getItems()[1];
 				//set item as selected
 				debugger;
 				oList.setSelectedItem(oItemToSelect,true);
 				//I want to fire selectionChange event automatically once 0th item is selected
+				//but below statement doesn't work
 				//oList.fireSelectionChange(this);
+				//get all items with channelAPISource Property
+				var arr = this.getOwnerComponent().getModel().getData()["channels"];
+				//get first list item
+				var fListItem  = oList.getItems()[1].getProperty("title");
+				var apiSubStr;
+				for (var i=0; i<arr.length;i++){
+					if(arr[i].channelName === fListItem){
+						apiSubStr = arr[i].channelAPISource;
+					}
+				}
+				this.routeToPage(apiSubStr);
 			}
 		});
 });
