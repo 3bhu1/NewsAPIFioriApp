@@ -1,7 +1,8 @@
 sap.ui.define([
 		'my/newsapi/controller/BaseController',
 		'sap/ui/model/Filter',
-		'sap/ui/model/FilterOperator'
+		'sap/ui/model/FilterOperator',
+		'sap/ui/Device'
 	],
 	function(BaseController,Filter,FilterOperator,BusyDialog){
 		return BaseController.extend('my.newsapi.controller.M1',{
@@ -58,20 +59,23 @@ sap.ui.define([
 				//set item as selected
 				debugger;
 				oList.setSelectedItem(oItemToSelect,true);
-				//I want to fire selectionChange event automatically once 0th item is selected
-				//but below statement doesn't work
-				//oList.fireSelectionChange(this);
-				//get all items with channelAPISource Property
-				var arr = this.getOwnerComponent().getModel().getData()["channels"];
-				//get first list item
-				var fListItem  = oList.getItems()[1].getProperty("title");
-				var apiSubStr;
-				for (var i=0; i<arr.length;i++){
-					if(arr[i].channelName === fListItem){
-						apiSubStr = arr[i].channelAPISource;
+				//Set detail page only for desktops & tablets
+				if (sap.ui.Device.system.desktop){
+					//I want to fire selectionChange event automatically once 0th item is selected
+					//but below statement doesn't work
+					//oList.fireSelectionChange(this);
+					//get all items with channelAPISource Property
+					var arr = this.getOwnerComponent().getModel().getData()["channels"];
+					//get first list item
+					var fListItem  = oList.getItems()[1].getProperty("title");
+					var apiSubStr;
+					for (var i=0; i<arr.length;i++){
+						if(arr[i].channelName === fListItem){
+							apiSubStr = arr[i].channelAPISource;
+						}
 					}
+					this.routeToPage(apiSubStr);	
 				}
-				this.routeToPage(apiSubStr);
 			}
 		});
 });
